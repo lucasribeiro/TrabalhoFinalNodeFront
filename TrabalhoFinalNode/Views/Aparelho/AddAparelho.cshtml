@@ -1,0 +1,35 @@
+﻿@model TrabalhoFinalNode.Models.Domain.Aparelho
+@{
+    //Layout = "_Layout";
+}
+<div class="mt-2" style="width:50%">
+<form asp-action="AddAparelho">
+    <h2>Adicionar Aparelhos</h2>
+    <div class="mb-3">
+        <label asp-for="descricao" class="form-label">Descrição</label>
+            <input asp-for="descricao" type="text" class="form-control">
+            <span class="text-danger" asp-validation-for="descricao"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="marca" class="form-label">Marca</label>
+            <input asp-for="marca" type="text" class="form-control">
+            <span class="text-danger" asp-validation-for="marca"></span>
+    </div>
+
+        <div class="mb-3">
+            <label asp-for="valor" class="form-label">Valor</label>
+            <input asp-for="valor" type="number" min="1" step="any" class="form-control">
+            <span class="text-danger" asp-validation-for="valor"></span>
+        </div>
+  
+        @if (TempData["msg"] != null)
+        {
+            <div class="mb-3">
+               @TempData["msg"]
+            </div>
+        }   
+        <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="/Aparelho/DisplayAparelho" class="btn btn-primary">Listar Aparelhos</a>
+</form>
+</div>
